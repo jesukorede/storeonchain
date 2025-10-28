@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Avatars (owner-only writes)
+    match /avatars/{uid}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Product images (temporary public writes to 'public'; owner-only writes to user folder)
+    match /products/public/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /products/{uid}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}

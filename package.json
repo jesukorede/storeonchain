@@ -1,0 +1,23 @@
+{
+  "name": "ruhmstore",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "contracts"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w apps/web",
+    "dev:api": "npm run dev -w apps/api",
+    "build:web": "npm run build -w apps/web",
+    "start:web": "npm run start -w apps/web",
+    "build:api": "npm run build -w apps/api",
+    "start:api": "npm run start -w apps/api"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.59.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.2",
+    "ethers": "^6.15.0"
+  }
+}

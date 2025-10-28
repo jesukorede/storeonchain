@@ -1,0 +1,37 @@
+# Node
+node_modules/
+
+# Environment files (all apps)
+.env
+.env.*
+
+# Firebase admin credentials
+apps/api/serviceAccount.json
+
+# Build outputs
+dist/
+.next/
+out/
+
+# Hardhat (contracts)
+contracts/artifacts/
+contracts/cache/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temp files
+*.swp
