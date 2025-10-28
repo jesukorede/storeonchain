@@ -3,7 +3,7 @@ import { Router } from 'express'
 import { z } from 'zod'
 import { getIO } from '../socket'
 import '../lib/firebaseAdmin'
-import admin from 'firebase-admin'
+import admin = require('firebase-admin')
 
 const router = Router()
 

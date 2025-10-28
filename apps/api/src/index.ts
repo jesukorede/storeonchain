@@ -1,19 +1,19 @@
 import 'dotenv/config'
-import express from 'express'
-import cors from 'cors'
+import express = require('express')
+import cors = require('cors')
 import productsRouter from './routes/products'
 import ordersRouter from './routes/orders'
 import promotionsRouter from './routes/promotions'
 import eventsRouter from './routes/events'
 import socialRouter from './routes/social'
 import escrowRouter from './routes/escrow'
-import http from 'http'
+import * as http from 'http'
 import { Server as IOServer } from 'socket.io'
 import { setIO } from './socket'
-import helmet from 'helmet'
-import compression from 'compression'
-import morgan from 'morgan'
-import rateLimit from 'express-rate-limit'
+import helmet = require('helmet')
+import compression = require('compression')
+import morgan = require('morgan')
+const rateLimit = require('express-rate-limit')
 
 const app = express()
 // CORS whitelist
@@ -21,7 +21,7 @@ const allowedOrigin = process.env.CORS_ORIGIN || process.env.NEXT_PUBLIC_WEB_ORI
 app.use(cors({ origin: allowedOrigin, credentials: true }))
 
 // Security & performance
-app.use(helmet())
+app.use(helmet.default())
 app.use(compression())
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 
